@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block title %}用户注册{% endblock %}
+
+{% block newcontent %}
+    <div id="container"><h1>用户注册</h1>
+        <form action="{{ url_for('user1.register') }}" method="post">
+            <div class="form-group">
+                <label for="inputUsername">用户名</label>
+                <input type="text" class="form-control" id="inputUsername" placeholder="用户名" name="username">
+            </div>
+            <div class="form-group">
+                <label for="inputPassword1">密码</label>
+                <input type="password" class="form-control" id="inputPassword1" placeholder="Password" name="password">
+            </div>
+            <div class="form-group">
+                <label for="inputConfirm">确认密码</label>
+                <input type="password" class="form-control" id="inputConfirm" placeholder="confirm password"
+                       name="repassword">
+            </div>
+            <div class="form-group">
+                <label for="inputPhone">手机号码</label>
+                <input type="text" class="form-control" id="inputPhone" placeholder="phone" name="phone"><span></span>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail1">邮箱</label>
+                <input type="email" class="form-control" id="inputEmail1" placeholder="Email" name="email">
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">注册</button>
+             <button type="text" class="btn btn-primary reset">重置</button>
+        </form>
+    </div>
+
+{% endblock %}
+
+{% block styles %}
+    {{ super() }}
+
+    <style>
+        #container {
+            width: 500px;
+            height: 800px;
+            margin: 0 auto;
+        }
+
+        #container h1 {
+            margin: 20px auto;
+            margin-left: 200px;
+        }
+        #container button {
+            width: 100px;
+            margin-left: 100px;
+        }
+        #container .reset {
+            margin-left: 100px;
+        }
+
+    </style>
+{% endblock %}
+
+{% block scripts %}
+    {#<script src="{{url_for('.static', filename='myscripts.js')}}"></script>#}
+    {{ super() }}
+    <script>
+        $('#inputPhone').blur(function () {
+
+            let phone = $(this).val();
+            let alinf = $(this).next();
+            alinf.text('');
+            if (phone.length === 11) {
+                $.get('{{ url_for('user1.check_phone')}}', {phone: phone}, function (data) {
+                    {#console.log(data)#}
+                    if (data.code !== 200) {
+                        alinf.css({"color": "red", "font-size": "12px"})
+                        alinf.text(data.msg)
+                    }
+                })
+            } else {
+                alinf.css({"color": "red", "font-size": "12px"})
+                alinf.text('手机格式错误')
+            }
+
+
+        })
+    </script>
+{% endblock %}
+
+{% block html_attribs %} lang="zh"{% endblock %}

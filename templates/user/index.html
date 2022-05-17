@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block styles %}
+    {{ super() }}
+
+    <style>
+        #container {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        #container .block {
+            width: 100%;
+            height: 30px;
+            margin-top: 10px;
+            background-color: burlywood;
+        }
+    </style>
+
+
+{% endblock %}
+
+
+{% block newcontent %}
+        <div id="container">
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+        </div>
+    {% endblock %}
