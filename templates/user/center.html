@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block styles %}
+    {{ super() }}
+
+    <style>
+        h1 {
+            margin-left: 550px;
+            margin-bottom: 50px;
+        }
+        form {
+            float: right;
+            margin-right: 370px;
+        }
+        .form-control {
+            width: 500px;
+        }
+
+        .list-group {
+            width: 200px;
+            text-align: center;
+            float: left ;
+            margin-left: 50px;
+        }
+
+    </style>
+
+{% endblock %}
+
+
+{% block newcontent %}
+<h1>用户信息修改</h1>
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputFile">File input</label>
+    <input type="file" id="exampleInputFile">
+    <p class="help-block">Example block-level help text here.</p>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"> Check me out
+    </label>
+  </div>
+  <button type="submit" class="btn btn-default">提交修改</button>
+</form>
+
+
+<ul class="list-group">
+  <li class="list-group-item">用户信息修改</li>
+  <li class="list-group-item">发表文章</li>
+
+</ul>
+
+
+{% endblock %}

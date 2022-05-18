@@ -10,9 +10,10 @@ class User(db.Model):
     phone = db.Column(db.String(11),nullable=False,unique=True)
     email = db.Column(db.String(30))
     icon = db.Column(db.String(100))
+    role = db.Column(db.Enum('admin','NJFuser','supplier'))
     isdelete = db.Column(db.Boolean,default=False)
     rdatetime = db.Column(db.DateTime,default=datetime.now)
-    articles = db.relationship('Article',backref='user')
+
 
     def __str__(self):
         return self.username

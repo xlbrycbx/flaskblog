@@ -10,6 +10,11 @@
             width: 100%;
             height: 25px;
         }
+        .navbar-right {
+          margin-right: 100px;
+
+        }
+
     </style>
 
 
@@ -34,7 +39,8 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="{{ url_for('user1.index') }}">首页 <span class="sr-only">(current)</span></a></li>
+                    <li class="active"><a href="{{ url_for('user1.index') }}">首页 <span class="sr-only">(current)</span></a>
+                    </li>
                     <li><a href="#">关于我</a></li>
                     <li><a href="#">我的相册</a></li>
                     <li><a href="#">留言板</a></li>
@@ -61,10 +67,28 @@
                 </form>
                 <ul class="nav navbar-nav navbar-right">
                     {% if user %}
-                         <li><a href="#">{{user.username}}欢迎您</a></li>
+                        {#                                                 <li><a href="#">{{user.username}}欢迎您</a></li>#}
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                {{ user.username }},欢迎您！
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="{{ url_for('user1.center') }}">用户中心</a></li>
+
+
+                                <li role="separator" class="divider"></li>
+                                <li><a href="{{ url_for('user1.logout') }}">退出</a></li>
+                            </ul>
+                        </div>
+
+
+
+
                     {% else %}
                         <li><a href="{{ url_for('user1.login') }}">登录</a></li>
-                    <li><a href="{{ url_for('user1.register') }}">注册</a></li>
+                        <li><a href="{{ url_for('user1.register') }}">注册</a></li>
                     {% endif %}
 
                 </ul>
@@ -81,8 +105,8 @@
 {% endblock %}
 
 {% block scripts %}
-{#<script src="{{url_for('.static', filename='myscripts.js')}}"></script>#}
-{{super()}}
+
+    {{ super() }}
 {% endblock %}
 
 {% block html_attribs %} lang="zh"{% endblock %}

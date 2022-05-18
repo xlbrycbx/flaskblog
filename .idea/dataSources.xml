@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="flaskblog1.db" uuid="0887b2af-2f60-4b0c-b04e-8ae70cc990b1">
+    <data-source source="LOCAL" name="flaskblog.db" uuid="501ee8e6-a91e-4263-af76-b8319ec1ce9e">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/../../../../sqlite/sqlite-tools-win32-x86-3380500/flaskblog1.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/../../../../sqlite/sqlite-tools-win32-x86-3380500/flaskblog.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

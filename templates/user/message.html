@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% block newcontent %}
+    <h1>您无权限进行此项操作，3秒后跳转至主页</h1>
+{% endblock %}
+
+{% block navbar %}
+{% endblock %}
+
+{% block scripts %}
+
+    {{ super() }}
+
+    <script>
+        $(function () {
+            setTimeout(function () {
+                location.href = {{ url_for('user1.index') }};
+            }, 3000);
+        });
+    </script>
+{% endblock %}
